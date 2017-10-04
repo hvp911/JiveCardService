@@ -5,17 +5,21 @@ import javax.ws.rs.Path;
 import javax.ws.rs.core.Response;
 
 import net.rest.exception.APIException;
+import net.rest.helper.DeckHelper;
 import net.rest.response.ResponseWriter;
 
 @Path("")
 public class CreateOrResetDeckHandler {
+	public CreateOrResetDeckHandler() {
+		deckHelper = DeckHelper.getDeckHelper();
+	}
 
 	@POST
 	@Path("/rest/createdeck")
 	public Response createOrResetDeck() throws APIException {
-		// TODO: Add logic to create deck here : 201
-		
-		return ResponseWriter.ok("deck created");
+		deckHelper.createOrResetDeck();
+		return ResponseWriter.ok("Deck Created Successfully.");
 	}
 
+	private DeckHelper deckHelper;
 }

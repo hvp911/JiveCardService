@@ -6,7 +6,6 @@ import javax.ws.rs.core.Response;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
-
 public class ResponseWriter {
 
 	public ResponseWriter() {
