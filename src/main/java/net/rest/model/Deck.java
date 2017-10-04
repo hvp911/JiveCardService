@@ -21,7 +21,11 @@ public class Deck {
 		return (this.cardDeck != null);
 	}
 
-	public Card getNextCard() {
+    public boolean isEmptyDeck() {
+        return this.cardDeck.isEmpty();
+    }
+
+    public Card getNextCard() {
 		if (this.cardDeck.isEmpty()) {
 			return null;
 		}

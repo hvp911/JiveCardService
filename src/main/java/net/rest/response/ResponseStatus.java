@@ -10,7 +10,8 @@ public enum ResponseStatus implements ResponseStatusType {
     UNAUTHORIZED(Response.Status.UNAUTHORIZED), 
     NOT_FOUND(Response.Status.NOT_FOUND), 
     UNSUPPORTED_MEDIA_TYPE(Response.Status.UNSUPPORTED_MEDIA_TYPE),
-    OK(Response.Status.OK);
+    OK(Response.Status.OK),
+    CREATED(Response.Status.CREATED);
 
     ResponseStatus(Response.Status httpStatusCode) {
         this.httpStatusCode = httpStatusCode;
