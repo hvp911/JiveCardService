@@ -21,24 +21,27 @@ public class Deck {
 		return (this.cardDeck != null);
 	}
 
-    public boolean isEmptyDeck() {
-        return this.cardDeck.isEmpty();
-    }
+	public boolean isEmptyDeck() {
+		return this.cardDeck.isEmpty();
+	}
 
-    public Card getNextCard() {
+	public Card getNextCard() {
 		if (this.cardDeck.isEmpty()) {
 			return null;
 		}
-		Card cardToDeal = this.cardDeck.get(0);
-		this.cardDeck.remove(0);
+		Card cardToDeal = null;
+		synchronized (instance) {
+			cardToDeal = this.cardDeck.get(0);
+			this.cardDeck.remove(0);
+		}
 		return cardToDeal;
 	}
 
 	public void shuffleDeck() {
 		ArrayList<Card> shuffledCardDeck = new ArrayList<Card>();
-		int cardDeckSize = this.cardDeck.size();
-		// Synchronization is not happening here. need to check
-		synchronized (this.cardDeck) {
+		synchronized (instance) {
+			int cardDeckSize = this.cardDeck.size();
+			// Synchronization is not happening here. need to check
 			for (int i = 0; i < cardDeckSize; i++) {
 				int randomIndex = rand.nextInt(this.cardDeck.size());
 				shuffledCardDeck.add(this.cardDeck.get(randomIndex));

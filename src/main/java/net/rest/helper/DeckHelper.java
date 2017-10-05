@@ -24,9 +24,9 @@ public class DeckHelper {
 		return Deck.getDeck().isvalidCardDeck();
 	}
 
-    public boolean isEmptyDeck() {
-        return Deck.getDeck().isEmptyDeck();
-    }
+	public boolean isEmptyDeck() {
+		return Deck.getDeck().isEmptyDeck();
+	}
 
 	private static void createCardsForSuite(SuitesEnum suite) {
 		for (CardValuesEnum cardValue : CardValuesEnum.values()) {
@@ -41,7 +41,7 @@ public class DeckHelper {
 		}
 	}
 
-    public void shuffleDeck() {
+	public void shuffleDeck() {
 		Deck.getDeck().shuffleDeck();
 	}
 
