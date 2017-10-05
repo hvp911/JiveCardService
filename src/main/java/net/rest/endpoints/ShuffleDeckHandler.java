@@ -19,9 +19,12 @@ public class ShuffleDeckHandler {
 	@Path("/rest/shuffle")
 	public Response shuffleDeck() throws APIException {
 		// TODO: Should return shuffle success or failure.
-		if (!deckHelper.validateDeck()) {
-			return ResponseWriter.write("Deck is not populated correctly.", ResponseStatus.BAD_REQUEST);
-		}
+        if (!deckHelper.validateDeck()) {
+            return ResponseWriter.write("Deck is not populated correctly.", ResponseStatus.BAD_REQUEST);
+        }
+        if (deckHelper.isEmptyDeck()) {
+            return ResponseWriter.write("Deck is Empty. Repopulate a deck to shuffle.", ResponseStatus.BAD_REQUEST);
+        }
 		deckHelper.shuffleDeck();
 		return ResponseWriter.ok("Deck Shuffled Successfully.");
 	}

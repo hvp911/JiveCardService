@@ -18,7 +18,7 @@ public class CreateOrResetDeckHandler {
 	@Path("/rest/createdeck")
 	public Response createOrResetDeck() throws APIException {
 		deckHelper.createOrResetDeck();
-		return ResponseWriter.ok("Deck Created Successfully.");
+		return ResponseWriter.created("Deck Created Successfully.");
 	}
 
 	private DeckHelper deckHelper;

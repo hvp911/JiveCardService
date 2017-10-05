@@ -24,6 +24,10 @@ public class DeckHelper {
 		return Deck.getDeck().isvalidCardDeck();
 	}
 
+	public boolean isEmptyDeck() {
+		return Deck.getDeck().isEmptyDeck();
+	}
+
 	private static void createCardsForSuite(SuitesEnum suite) {
 		for (CardValuesEnum cardValue : CardValuesEnum.values()) {
 			Deck.getDeck().cardDeck.add(CardFactory.getCard(suite, cardValue));

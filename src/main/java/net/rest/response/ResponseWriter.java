@@ -31,6 +31,10 @@ public class ResponseWriter {
 		return write(message, ResponseStatus.OK, null);
 	}
 
+	public static Response created(String message) {
+		return write(message, ResponseStatus.CREATED, null);
+	}
+
 	public static Response write(String message, ResponseStatusType status) {
 		return write(null, status, message);
 	}
