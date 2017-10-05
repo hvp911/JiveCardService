@@ -5,6 +5,9 @@ import java.util.Random;
 
 import net.rest.model.Card;
 
+/**
+ * Deck model. Contains operations that can be performed on Deck.
+ */
 public class Deck {
 
 	private Deck() {
@@ -17,15 +20,26 @@ public class Deck {
 		return instance;
 	}
 
+	public void initializeCardDeck() {
+		this.cardDeck = new ArrayList<Card>();
+	}
+
+	public void addCardToDeck(Card card) {
+		cardDeck.add(card);
+	}
+
 	public boolean isvalidCardDeck() {
+		// Check if cardDeck is null.
 		return (this.cardDeck != null);
 	}
 
 	public boolean isEmptyDeck() {
+		// Check if cardDeck is empty.
 		return this.cardDeck.isEmpty();
 	}
 
 	public Card getNextCard() {
+		// Return next card from the deck.
 		if (this.cardDeck.isEmpty()) {
 			return null;
 		}
@@ -38,6 +52,7 @@ public class Deck {
 	}
 
 	public void shuffleDeck() {
+		// Shuffle deck.
 		ArrayList<Card> shuffledCardDeck = new ArrayList<Card>();
 		synchronized (instance) {
 			int cardDeckSize = this.cardDeck.size();
@@ -52,6 +67,6 @@ public class Deck {
 	}
 
 	private Random rand = new Random();
-	public ArrayList<Card> cardDeck;
-	public static Deck instance;
+	private ArrayList<Card> cardDeck;
+	private static Deck instance;
 }

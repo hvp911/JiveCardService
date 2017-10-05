@@ -9,7 +9,7 @@ import net.rest.response.ResponseStatus;
 import net.rest.response.ResponseWriter;
 
 /**
- * Catch all exception thrown. Reformat
+ * Catch all exception via WebApplicationException. Reformat it before returning response.
  */
 @Provider
 public class ThrowableExceptionMapper implements ExceptionMapper<Throwable> {

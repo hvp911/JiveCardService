@@ -2,6 +2,9 @@ package net.rest.response;
 
 import javax.ws.rs.core.Response;
 
+/**
+ * All possible responses for the application that could be returned as response.
+ */
 public enum ResponseStatus implements ResponseStatusType {
 
     INTERNAL_ERROR(Response.Status.INTERNAL_SERVER_ERROR), 

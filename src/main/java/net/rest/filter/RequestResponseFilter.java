@@ -11,6 +11,9 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 
+/**
+ * Filter all requests through this filter.
+ */
 @Singleton
 public class RequestResponseFilter implements Filter {
 	@Override
@@ -20,7 +23,6 @@ public class RequestResponseFilter implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		// request execution
 		chain.doFilter(request, response);
 	}
 

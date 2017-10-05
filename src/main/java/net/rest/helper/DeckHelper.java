@@ -1,14 +1,15 @@
 package net.rest.helper;
 
-import java.util.ArrayList;
-
 import net.rest.enums.CardValuesEnum;
 import net.rest.enums.SuitesEnum;
 import net.rest.model.Card;
 import net.rest.model.CardFactory;
 import net.rest.model.Deck;
 
-// TODO: Creating singleton for now. Should be injected using google guice.
+/**
+ * DeckHelper to perform operations on Deck. Only object visible to the
+ * endpoints.
+ */
 public class DeckHelper {
 	private DeckHelper() {
 	}
@@ -30,12 +31,12 @@ public class DeckHelper {
 
 	private static void createCardsForSuite(SuitesEnum suite) {
 		for (CardValuesEnum cardValue : CardValuesEnum.values()) {
-			Deck.getDeck().cardDeck.add(CardFactory.getCard(suite, cardValue));
+			Deck.getDeck().addCardToDeck(CardFactory.getCard(suite, cardValue));
 		}
 	}
 
 	public void createOrResetDeck() {
-		Deck.getDeck().cardDeck = new ArrayList<Card>();
+		Deck.getDeck().initializeCardDeck();
 		for (SuitesEnum suite : SuitesEnum.values()) {
 			createCardsForSuite(suite);
 		}
@@ -49,6 +50,5 @@ public class DeckHelper {
 		return Deck.getDeck().getNextCard();
 	}
 
-	public ArrayList<Card> deltCard = new ArrayList<Card>();
-	public static DeckHelper instance;
+	private static DeckHelper instance;
 }
