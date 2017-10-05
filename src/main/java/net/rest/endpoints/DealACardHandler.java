@@ -9,6 +9,9 @@ import net.rest.helper.DeckHelper;
 import net.rest.response.ResponseStatus;
 import net.rest.response.ResponseWriter;
 
+/**
+ * Deal a card Endpoint 
+ */
 @Path("")
 public class DealACardHandler {
 	public DealACardHandler() {
@@ -18,6 +21,9 @@ public class DealACardHandler {
 	@GET
 	@Path("/rest/dealacard")
 	public Response dealACard() throws APIException {
+		/*
+		 * Get first card from the deck. If deck is empty then return empty response("{}").
+		 */
 		if (!deckHelper.validateDeck()) {
 			return ResponseWriter.write("Deck has not been created yet.", ResponseStatus.BAD_REQUEST);
 		}

@@ -4,13 +4,12 @@ import com.google.inject.AbstractModule;
 import net.rest.exception.ApiExceptionMapper;
 
 /**
- * ErrorHandlingModule
+ * ErrorHandlingModule to handle customized exception responses.
  */
 public class ErrorHandling extends AbstractModule {
 	@Override
 	protected void configure() {
-		bind(NotFoundExceptionMapper.class).toInstance(new NotFoundExceptionMapper());
 		bind(ApiExceptionMapper.class).toInstance(new ApiExceptionMapper());
-		bind(InvalidRequestExceptionMapper.class).toInstance(new InvalidRequestExceptionMapper());
+		bind(ThrowableExceptionMapper.class).toInstance(new ThrowableExceptionMapper());
 	}
 }

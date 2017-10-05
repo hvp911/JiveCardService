@@ -6,7 +6,9 @@ import javax.ws.rs.ext.Provider;
 
 import net.rest.response.ResponseStatus;
 import net.rest.response.ResponseWriter;
-
+/**
+ * Map APIException with ExceptionMapper to return customized response.
+ */
 @Provider
 public class ApiExceptionMapper implements ExceptionMapper<APIException> {
 	public Response toResponse(APIException ex) {
