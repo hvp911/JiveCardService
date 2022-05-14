@@ -1,5 +1,5 @@
 # JiveCardService
-Application for Jive Interview Test
+Application for Jive
 
 # Requirement
 
